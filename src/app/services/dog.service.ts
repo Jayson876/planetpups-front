@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Dog } from 'interfaces/dog';
 import { User } from 'interfaces/user';
 import { Observable, tap, catchError, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DogService {
-  private REST_API_URL = 'http://localhost:8080/api/dogs';
+  private REST_API_URL = environment.BASE_API_URL +'/dogs';
   private HTTP_HEADER = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
