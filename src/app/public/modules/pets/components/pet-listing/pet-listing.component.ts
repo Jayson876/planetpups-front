@@ -5,6 +5,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogService } from 'src/app/services/dialog.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-pet-listing',
   templateUrl: './pet-listing.component.html',
@@ -12,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PetListingComponent implements OnInit {
   dogListing: Dog[] = [];
-  IMAGE_PATH: string = 'http://localhost:8080/tmp/';
+  IMAGE_PATH: string = environment.BASE_API_URL + '/tmp';
   currentUser: any;
   searchText: any;
   constructor(

@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Dog } from 'interfaces/dog';
@@ -14,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserDogListComponent implements OnInit {
   storage: any;
   dogListing: Dog[] = [];
-  IMAGE_PATH: string = 'http://localhost:8080/tmp/';
+  IMAGE_PATH: string = environment.BASE_API_URL + '/tmp';
   currentUser: any;
   constructor(
     private dialogService: DialogService,
