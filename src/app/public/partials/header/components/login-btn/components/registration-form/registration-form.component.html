@@ -1,0 +1,77 @@
+<form class="form" [formGroup]="registrationForm" (submit)="registerUser()" >
+  <div class="form-header">
+    <h2>Register</h2>
+    <span *ngIf="errMsg"></span>
+  </div>
+  <div class="form-group group-col-2">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="firstName">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched || registrationForm.controls['firstName'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['firstName'].hasError('required')"><small>First Name is required</small></div>
+      </div>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="surname">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['surname'].invalid && registrationForm.controls['surname'].touched || registrationForm.controls['surname'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['surname'].hasError('required')"><small>Last Name is required</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched || registrationForm.controls['email'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['email'].hasError('required')"><small>Email is required</small></div>
+        <div *ngIf="registrationForm.controls['email'].hasError('pattern')"><small>Invalid email address</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group group-col-2">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched || registrationForm.controls['password'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['password'].hasError('required')"><small>A password is required</small></div>
+        <div *ngIf="registrationForm.controls['password'].hasError('minlength')"><small>Minimum 8 characters and at least one upper case letter, number and special character</small></div>
+      </div>
+    </div>
+    <div>
+      <mat-form-field appearance="standard" >
+        <mat-label>Confirm Password</mat-label>
+        <input  matInput type="password" formControlName="confirmPassword">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched || registrationForm.controls['confirmPassword'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['confirmPassword'].hasError('required')"><small>Please confirm your password</small></div>
+        <div *ngIf="registrationForm.controls['confirmPassword'].hasError('mustMatch')"><small>Password does not match</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group group-col-2">
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="text" formControlName="cell">
+      </mat-form-field>
+      <div class="errors" *ngIf="registrationForm.controls['cell'].invalid && registrationForm.controls['cell'].touched || registrationForm.controls['cell'].invalid && isSubmitted">
+        <div *ngIf="registrationForm.controls['cell'].hasError('required')"><small>Phone number is required</small></div>
+        <div *ngIf="registrationForm.controls['cell'].hasError('pattern')"><small>Invalid phone number</small></div>
+      </div>
+    </div>
+    <mat-checkbox formControlName="whatsapp">Whatsapp?</mat-checkbox>
+  </div>
+  <div class="control-group">
+    <span>Already a member? <a (click)="sendData()">Log In</a></span>
+    <button mat-raised-button type="submit">Register</button>
+  </div>
+</form>

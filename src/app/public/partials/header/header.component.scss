@@ -1,0 +1,104 @@
+.site-header {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.header{
+  min-height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.nav-1, .nav-2 {
+  display: flex;
+  align-items: center;
+}
+
+.nav-1 {
+  height: 100%;
+}
+.nav-1 a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-1 a::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 0%;
+    background: #1a130c;
+    bottom: 0;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+
+  }
+  .nav-1  a:hover::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: #1a130c;
+    bottom: 0;
+    left: 0;
+  }
+  .nav-1  a.active{
+    font-weight: 500;
+    color: #BA8512;
+  }
+  .nav-1 a.active::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: #BA8512;
+    bottom: 0;
+    left: 0;
+  }
+
+
+.nav-2 {
+  margin-left: 3em;
+}
+
+.nav-1 a {
+
+  margin-left: 3em;
+  text-decoration: none;
+  color: #0d0a06;
+  transition: all 0.1s ease-in-out;
+
+
+}
+
+
+
+.nav-2 {
+  margin-left: 3em;
+}
+
+.nav-1 a {
+
+  margin-left: 3em;
+  text-decoration: none;
+  color: #0d0a06;
+}

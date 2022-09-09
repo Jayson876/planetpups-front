@@ -1,0 +1,46 @@
+.site-header {
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  background-color: #FFF;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.header{
+  min-height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.nav-1, .nav-2 {
+  display: flex;
+  align-items: center;
+}
+
+.nav-2 {
+  margin-left: 3em;
+}
+
+.nav-1 a {
+
+  margin-left: 3em;
+  text-decoration: none;
+  color: #0d0a06;
+  transition: all 0.2s ease-in-out
+}
+
+.nav-1 a:hover {
+  color: #BA8512
+}
+
+.nav-2 a {
+  display: flex;
+  align-items: center;
+}

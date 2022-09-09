@@ -1,0 +1,229 @@
+main {
+  width: 100%;
+  height: auto;
+  background: rgb(255, 248, 165);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(255, 248, 165, 1) 0%,
+    rgba(243, 235, 226, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(255, 248, 165, 1) 0%,
+    rgba(243, 235, 226, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(255, 248, 165, 1) 0%,
+    rgba(243, 235, 226, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff8a5",endColorstr="#f3ebe2",GradientType=1);
+}
+
+.primary-banner {
+  height: auto;
+  background-color: #1a130c;
+}
+
+#banner-1 {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content {
+  margin-top: 1.75em;
+  display: flex;
+  align-items: center;
+}
+
+.banner-content div {
+  display: flex;
+  align-items: center;
+}
+.banner-content div svg {
+  width: 1.7em;
+  height: 1.7em;
+  fill: #e9ab21;
+}
+
+.banner-content span {
+  margin: 0 0.75em;
+  color: #e9ab21;
+  font-size: 1.777em;
+  letter-spacing: 0.25ch;
+  font-weight: 500;
+}
+
+.search-section {
+  width: 100%;
+  padding: 4em 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  position: relative;
+}
+
+.search-block {
+  width: 100%;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search,
+.search form {
+  display: flex;
+  width: 100%;
+}
+
+.search form .form-control {
+  padding: 0 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.search form .form-control label {
+  margin-left: 0.75em;
+  font-size: 0.75em;
+  font-weight: 500;
+  color: #e9ab21;
+}
+
+.search form .form-control select {
+  height: 3em;
+  padding: 0 0.25em;
+  border: 0;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.search form .form-control select:focus {
+  outline: 0;
+}
+
+.search-block-link {
+  display: flex;
+  justify-content: center;
+}
+.search-block-link a {
+  margin-top: 2em;
+  font-size: 1em;
+  font-weight: 600;
+  color: #1a130c;
+}
+.search-illustration {
+  position: absolute;
+  top: 37%;
+  transform: translateY(-50%);
+  left: 8%;
+}
+.search-illustration svg {
+  width: 150px;
+  display: block;
+}
+.promise-section {
+  padding: 8em 2em 4em 2em;
+}
+
+.promise-block {
+  width: 100%;
+  grid-gap: 3em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.promise-card {
+  width: 100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border: 1px solid #fbeab1;
+  padding: 4rem;
+}
+
+.promise-card-icon {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.promise-card-text {
+  flex: 1;
+  text-align: center;
+}
+
+.promise-card-text h3 {
+  font-size: 1.777em;
+  font-weight: 500;
+  margin-top: 1em;
+  color: #e9ab21;
+}
+.promise-card-text p {
+  margin-top: 0.75em;
+  line-height: 20.3px;
+  color: #1a130c;
+}
+
+.pet-grooming-section {
+  padding: 4em 0 8em 0;
+  height: auto;
+}
+
+.pet-groooming-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.pet-grooming-article {
+  flex: 4;
+  flex-grow: 3;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 4em 4em 4em 4em;
+}
+
+.pet-grooming-article h4 {
+  color: #e9ab21;
+  font-size: 1.777em;
+  font-weight: 500;
+}
+.pet-grooming-article h2 {
+  color: #1a130c;
+  font-size: 2.369em;
+  margin-top: 0.25em;
+}
+
+.pet-grooming-image {
+  flex: 5;
+  height: auto;
+}
+
+.pet-grooming-image img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.assistance-section {
+  padding: 4em 0;
+  background-color: #1a130c;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.assistance-block {
+  width: 100%;
+  height: auto;
+}

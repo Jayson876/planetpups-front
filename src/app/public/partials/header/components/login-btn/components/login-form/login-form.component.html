@@ -1,0 +1,28 @@
+<form class="form" [formGroup]="loginForm" (submit)="loginUser()">
+  <div class="form-header">
+    <h2>Login</h2>
+    <span *ngIf="errMsg">{{errMsg}}</span>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email">
+    </mat-form-field>
+    <div class="errors" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched || loginForm.controls['email'].invalid && isSubmitted">
+      <div *ngIf="loginForm.controls['email'].hasError('required')"><small>This field is required</small></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <div class="errors" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched || loginForm.controls['password'].invalid && isSubmitted ">
+      <div *ngIf="loginForm.controls['password'].hasError('required')"><small>This field is required</small></div>
+    </div>
+  </div>
+  <div class="control-group">
+    <span>Not a member? <a (click)="sendData()">Register</a></span>
+    <button mat-raised-button type="submit">Login</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<app-header-primary></app-header-primary>
+<main>
+  <div class="container">
+    <app-user-profile></app-user-profile>
+  </div>
+  <section class="dog-list-header">
+    <div class="container">
+      <div class="header">
+        <h2>Manage Your Posts</h2>
+        <div class="header-controls">
+          <button [ngClass]="{'active': showList}"  (click)="listToggle()">Your Posts</button>
+          <button [ngClass]="{'active': showForm}" (click)="formToggle()">New Post</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-user-dog-list *ngIf="showList"></app-user-dog-list>
+  <app-user-create-dog-form *ngIf="!showList"></app-user-create-dog-form>
+</main>
+
+<app-footer></app-footer>

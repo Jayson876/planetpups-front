@@ -1,0 +1,48 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-weight: 500;
+    margin: 0;
+  }
+}
+.close-btn {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.dialog-msg {
+  font-size: 13px;
+  color: #1a130c;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+#yes-button {
+  font-size: 14px;
+  padding: 0;
+  font-weight: 500;
+  color: #f3ebe2;
+  border: 1px solid #1a130c;
+  background-color: #1a130c;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-left: 1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}

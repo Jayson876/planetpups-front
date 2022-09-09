@@ -1,0 +1,87 @@
+<section>
+  <div class="container">
+    <div class="new-dog-form">
+      <form [formGroup]="newDogForm" (submit)="createPost()">
+        <div class="form-group">
+          <div class="profile-image-upload">
+            <h3>Upload Photo</h3>
+            <input type="file" accept="image/*" (change)="onFileSelected($event)" #dogImage/>
+          </div>
+        </div>
+        <div class="form-group group-col-4">
+          <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input
+              type="number"
+              matInput
+              min="0"
+              formControlName="age"
+              required
+            />
+            <span matSuffix>In Weeks</span>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Vaccination Shots</mat-label>
+            <input
+              type="number"
+              matInput
+              min="0"
+              formControlName="shots"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>
+            <select matNativeControl formControlName="gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" floatLabel="always">
+            <mat-label>Price</mat-label>
+            <input
+              matInput
+              type="number"
+              formControlName="price"
+              class="example-right-align"
+              placeholder="0"
+              min="0"
+              required
+            />
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field>
+        </div>
+        <div
+          class="form-group group-col-3"
+          [ngStyle]="{
+            'grid-template-columns': isMixed ? '200px 1fr 1fr' : '200px 1fr'
+          }"
+        >
+          <mat-checkbox (change)="formFieldToggle()">Mixed Breed?</mat-checkbox>
+          <mat-form-field appearance="outline">
+            <mat-label>Dominant Breed</mat-label>
+            <select matNativeControl formControlName="breed_1" required>
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field *ngIf="isMixed" appearance="outline">
+            <mat-label>Mixed with</mat-label>
+            <select matNativeControl formControlName="breed_2">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="mercedes">Mercedes</option>
+              <option value="audi">Audi</option>
+            </select>
+          </mat-form-field>
+        </div>
+        <div class="form-group control-section">
+          <button mat-raised-button type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

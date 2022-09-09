@@ -1,0 +1,282 @@
+
+.r1-c2-controls {
+  display: flex;
+  align-items: center;
+  .delete-btn {
+    margin-left: 0.25rem;
+  }
+}
+.r1-c2-controls button {
+  padding: 0;
+  border: 0;
+  background: 0;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem 0 4rem 0;
+  min-height: 300px;
+}
+
+.dog-card-container {
+  width: 50%;
+  padding: 1rem;
+  border-bottom: 1px solid #c2c2c2;
+  display: flex;
+  align-items: center;
+  height: 186.81px;
+}
+
+.accent {
+  border-top: 1.5px solid #28383c;
+  background-color: #dae4e7;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+// .accent .dog-card-container-inner {
+//     border-bottom: 0
+// }
+
+.dog-card-container:nth-child(odd) {
+  border-right: 1px solid #c2c2c2;
+}
+.dog-card-container:nth-child(even) {
+  padding-left: 1rem;
+}
+
+// .dog-card-container:hover .dog-image img {
+//     transform: scale(1.2);
+// }
+.dog-card {
+  width: 100%;
+  display: flex;
+  // flex-direction: column;
+  // flex: 1;
+  position: relative;
+}
+.dog-image {
+  width: 223.48px;
+  height: 153.82px;
+  overflow: hidden;
+  // border-radius: 1rem;
+}
+.dog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
+  transition: 0.2s all ease-in-out;
+}
+.dog-description {
+  width: 335px;
+  flex-grow: 0;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dog-info {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.dog-info-r1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dog-info-r2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dog-info-r2-c2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.dog-name-title {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dog-breed {
+  display: flex;
+  color: #1a130c;
+  font-size: 14px;
+  pointer-events: none;
+}
+.dog-gender {
+  color: grey;
+  font-size: 13px;
+  pointer-events: none;
+}
+.dog-code {
+  display: flex;
+  color: grey;
+  font-size: 13px;
+  pointer-events: none;
+}
+.verified-section {
+  padding: 2px 12px;
+  background-color: #28383c;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.verified-section fa-icon {
+  margin-right: 4px;
+}
+.verified-section span {
+  color: #e7edef;
+  font-size: 14px;
+}
+
+.gallery-link {
+  margin-bottom: 8px;
+}
+
+.gallery-link a {
+  line-height: 0;
+  font-size: 0.75rem;
+  color: #1a130c;
+}
+
+.gallery-link a:hover {
+  color: #5a4635;
+}
+
+.dog-details {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: gray;
+  padding-left: 1rem;
+  display: flex;
+  pointer-events: none;
+}
+.details-col-1 {
+  flex: 1;
+}
+.details-col-2 {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.details-col-2 ul {
+  list-style-type: none;
+}
+
+.details-col-2 ul li {
+  margin-bottom: 2px;
+}
+
+.contact-details {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #1a130c;
+}
+.contact-details svg {
+  margin-right: 4px;
+  fill: #1a130c;
+}
+.contact-details span {
+  display: flex;
+  align-items: center;
+}
+
+.meta {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dog-upload-date {
+  color: grey;
+  font-size: 13px;
+}
+
+.dog-price {
+  border-left: 4px solid #1a2c13;
+  background-color: #cfe7c6;
+  font-size: 14px;
+  color: #1a2c13;
+  padding: 2px 14px;
+}
+
+.dot-separator {
+  margin: 0 11px;
+}
+.dot-separator2 {
+  margin: 0 6px;
+}
+
+.horizontal-seperator {
+  margin: 4px 0;
+  width: 32px;
+  border-bottom: 1px solid #c2c2c2;
+}
+.vertical-seperator {
+  margin: 0 11px;
+  width: auto;
+  border-left: 1px solid #c2c2c2;
+}
+.card-controls {
+  flex: 1;
+  flex-shrink: 0;
+}
+.card-controls .controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 16px;
+  margin-top: 5px;
+}
+
+.card-controls button {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-left: 16px;
+  color: #47372a;
+  font-size: 14px;
+}
+
+.card-controls button:hover {
+  cursor: pointer;
+}
+
+.card-controls .delete-btn {
+  border: 0;
+  padding: 0;
+}
+.empty-cart {
+    background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.empty-cart span {
+  font-size: 1rem;
+}
