@@ -101,7 +101,7 @@ export class UserCreateDogFormComponent implements OnInit {
             console.log('Error occured Creating Post');
           },
           complete: () => {
-            this.reloadPage();
+            // this.reloadPage();
           },
         });
     } else {
