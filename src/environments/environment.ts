@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BASE_API_URL: 'http://localhost:8080/api',
-  IMAGE_PATH: 'http://localhost:8080/',
+  IMAGE_PATH: 'http://localhost:8080/tmp/images',
 };
 
 /*
