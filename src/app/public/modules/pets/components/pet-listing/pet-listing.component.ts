@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PetListingComponent implements OnInit {
   dogListing: Dog[] = [];
-  IMAGE_PATH: string = environment.BASE_API_URL;
+  IMAGE_PATH: string = environment.IMAGE_PATH;
   currentUser: any;
   searchText: any;
   constructor(

@@ -15,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserDogListComponent implements OnInit {
   storage: any;
   dogListing: Dog[] = [];
-  IMAGE_PATH: string = environment.BASE_API_URL;
+  IMAGE_PATH: string = environment.IMAGE_PATH;
   currentUser: any;
   constructor(
     private dialogService: DialogService,
