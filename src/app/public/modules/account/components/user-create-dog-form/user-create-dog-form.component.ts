@@ -47,10 +47,7 @@ export class UserCreateDogFormComponent implements OnInit {
     this.getUser();
     this.currentUser = this.storageService.getUser();
     this.newDogForm = this.fb.group({
-      dogImage: new FormControl(
-        '',
-        Validators.compose([Validators.required])
-      ),
+      dogImage: new FormControl('', Validators.compose([Validators.required])),
       age: new FormControl(
         '',
         Validators.compose([Validators.required, Validators.minLength(0)])
@@ -67,43 +64,34 @@ export class UserCreateDogFormComponent implements OnInit {
   }
   formFieldToggle(): void {
     this.isMixed = !this.isMixed;
+    if (this.isMixed === false) {
+      this.newDogForm.get('breed_2')?.setValue(null);
+    }
   }
   createPost() {
     // console.log(this.newDogForm.value);
     console.log(this.selectedFile);
-    const formData = new FormData()
+    const formData = new FormData();
     if (this.newDogForm.valid) {
-      formData.append(
-        'dogImage',
-        this.selectedFile,
-        this.selectedFile.name
-      );
+      formData.append('dogImage', this.selectedFile, this.selectedFile.name);
       formData.append('age', this.newDogForm.controls['age'].value);
       formData.append('shots', this.newDogForm.controls['shots'].value);
       formData.append('gender', this.newDogForm.controls['gender'].value);
       formData.append('price', this.newDogForm.controls['price'].value);
-      formData.append(
-        'breed_1',
-        this.newDogForm.controls['breed_1'].value
-      );
-      formData.append(
-        'breed_2',
-        this.newDogForm.controls['breed_2'].value
-      );
+      formData.append('breed_1', this.newDogForm.controls['breed_1'].value);
+      formData.append('breed_2', this.newDogForm.controls['breed_2'].value);
       console.log('FORM DATA 92:', formData);
-      this.dogService
-        .createDogPost(formData, this.currentUser._id)
-        .subscribe({
-          next: () => {
-            console.log('Post Created');
-          },
-          error: () => {
-            console.log('Error occured Creating Post');
-          },
-          complete: () => {
-            this.reloadPage();
-          },
-        });
+      this.dogService.createDogPost(formData, this.currentUser._id).subscribe({
+        next: () => {
+          console.log('Post Created');
+        },
+        error: () => {
+          console.log('Error occured Creating Post');
+        },
+        complete: () => {
+          this.reloadPage();
+        },
+      });
     } else {
       console.log(this.newDogForm.value);
     }
