@@ -65,7 +65,7 @@ export class UserCreateDogFormComponent implements OnInit {
   formFieldToggle(): void {
     this.isMixed = !this.isMixed;
     if (this.isMixed === false) {
-      this.newDogForm.get('breed_2')?.setValue(null);
+      this.newDogForm.get('breed_2')?.reset();
     }
   }
   createPost() {
