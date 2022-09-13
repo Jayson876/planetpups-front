@@ -14,6 +14,7 @@ aside {
 .container {
   width: 80%;
   height: auto;
+  padding-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -31,21 +32,21 @@ aside {
   pointer-events: none;
 }
 .sorting-controls {
-  padding-left:2rem;
+  padding-left: 2rem;
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 85px 85px;
   grid-gap: 1rem;
 }
 
 .sorting-controls div button {
-  height: 35px;
+  height: 100%;
   border: 1px solid grey;
-  border-radius: 35px;
-  padding: 0 1rem;
-  margin-left: 1rem;
+  border-radius: 8px;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: gray;
@@ -64,6 +65,8 @@ aside {
   background-color: #47372a !important;
   color: #f7f4f2 !important;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px !important;
 }
 .sorting-controls div button.active:hover {
   border-color: #5a4635 !important;
@@ -97,9 +100,9 @@ aside {
     width: 100% !important;
   }
 
-::ng-deep  .mat-form-field-infix::after {
-    color: #1a130c!important;
-}
+  ::ng-deep .mat-form-field-infix::after {
+    color: #1a130c !important;
+  }
 }
 
 .search-section {
@@ -124,19 +127,29 @@ aside {
 }
 
 .col-1 {
-  flex: 5;
   height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0 1rem 0 0;
 }
+
+.col-1 form {
+  width: 100%;
+}
 .search-bar {
   flex: 2;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.search-bar small {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1rem;
 }
 
 .search-bar {
@@ -176,6 +189,15 @@ aside {
     margin-left: 0.25rem;
   }
 }
+.r1-c2-controls {
+  button svg {
+    transition: 0.2s all ease-in-out;
+  }
+  button:hover svg {
+    fill: #e9ab21;
+  }
+}
+
 .r1-c2-controls button {
   padding: 0;
   border: 0;
@@ -189,7 +211,7 @@ aside {
   align-items: stretch;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 1rem 0 4rem 0;
+  padding: 4rem 0 2rem 0;
   min-height: 500px;
 }
 
@@ -450,4 +472,21 @@ aside {
 
 .empty-cart span {
   font-size: 1rem;
+}
+
+::ng-deep .mat-paginator-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #1a130c;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #1a130c;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: #1a130c!important;
 }

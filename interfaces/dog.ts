@@ -1,5 +1,11 @@
 import { User } from './user';
 
+export type Gender = 'Male' | 'Female';
+
+// export interface Test {
+
+// }
+
 export class Dog {
   get(arg0: string): any {
     throw new Error('Method not implemented.');
@@ -10,7 +16,7 @@ export class Dog {
   age: number;
   shots: number;
   price: number;
-  gender: string;
+  gender: Gender;
   breed_1: string;
   breed_2: string;
   owner: User;
@@ -23,7 +29,7 @@ export class Dog {
     age?: number,
     shots?: number,
     price?: number,
-    gender?: string,
+    gender?: Gender,
     breed_1?: string,
     breed_2?: string,
     owner?: User,

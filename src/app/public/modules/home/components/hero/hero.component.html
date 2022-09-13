@@ -1,5 +1,7 @@
 <div id="hero">
-  <video onloadedmetadata="this.muted = true" oncanplay="this.play()"
+  <video
+    onloadedmetadata="this.muted = true"
+    oncanplay="this.play()"
     src="../../../../../../assets/static/videos/hero-video.mp4"
     autoplay
     loop
@@ -16,11 +18,12 @@
               <app-button1
                 [text]="'Start Looking'"
                 [btnClass]="'btn-primary-hero margin-top'"
-                [link]="'/dogs'"
+                routerLink="/dogs"
               ></app-button1>
               <app-button1
                 [text]="'Post a pet'"
                 [btnClass]="'btn-primary-2 margin-left margin-top'"
+                (click)="loginFormToggle()"
               ></app-button1>
             </div>
           </div>

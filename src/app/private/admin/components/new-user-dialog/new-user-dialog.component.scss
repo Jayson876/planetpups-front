@@ -1,0 +1,109 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-weight: 500;
+  margin: 0 !important;
+}
+.form-header {
+  display: flex;
+  align-items: center;
+}
+
+.form-header span {
+  padding: 0.5rem;
+  color: red;
+  background: rgb(252, 230, 230);
+  border-radius: 4px;
+  margin-left: 1rem;
+}
+
+.dialog-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.close-btn {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.form-group {
+  display: grid;
+  margin-bottom: 1.5em;
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 1rem !important;
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 100% !important;
+  }
+  ::ng-deep .mat-form-field-infix::after {
+    color: #1a130c !important;
+  }
+  ::ng-deep .mat-checkbox {
+    transform: translateY(-11px);
+    margin-left: 2rem;
+  }
+
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #ba8512;
+  }
+  ::ng-deep
+    .mat-checkbox-checked.mat-checkbox-disabled
+    .mat-checkbox-background {
+    background-color: #b0b0b0 !important;
+  }
+  ::ng-deep .mat-form-field {
+    width: 100%;
+  }
+  ::ng-deep
+    .mat-form-field-appearance-outline.mat-focused
+    .mat-form-field-outline {
+    color: #1a130c;
+  }
+
+  ::ng-deep
+    .mat-form-field-appearance-outline.mat-focused
+    .mat-form-field-label {
+    color: #1a130c;
+  }
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
+    .mat-ripple-element {
+    background-color: #1a130c !important;
+  }
+}
+
+.group-col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  align-items: center;
+  grid-column-start: auto;
+}
+.control-group {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-end;
+
+  ::ng-deep .mat-raised-button {
+    background-color: #1a130c;
+    color: #f3ebe2;
+    justify-self: flex-end !important;
+  }
+}
+
+.errors {
+  margin-top: -1rem;
+  color: #f44336;
+}

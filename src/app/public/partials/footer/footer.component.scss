@@ -1,6 +1,5 @@
 .footer {
   width: 100%;
-  height: 11.293333333333333em;
   background-color: #1a130c;
 }
 
@@ -11,18 +10,19 @@
 }
 .footer-main {
   width: 100%;
-  padding: 1.6666666666666667em 0;
+  padding: 3.5em 0;
+  display: flex;
+  justify-content: center;
 }
 .footer-bottom {
   width: 100%;
   padding: 1.6666666666666667em 0;
-  border-top: 1px solid #38291A;
+  border-top: 1px solid #38291a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #9A6F47;
+  color: #9a6f47;
   font-size: 0.8em;
-
 }
 
 .footer-bottom nav div:nth-child(1) a {
@@ -31,11 +31,63 @@
 
 .footer-bottom a {
   text-decoration: none;
-  color: #9A6F47;
+  color: #9a6f47;
   font-size: 1em;
   transition: all 0.2s ease-in-out;
 }
 .footer-bottom a:hover {
   text-decoration: underline;
-  color: #B28357;
+  color: #e9ab21;
+}
+
+.socials {
+  margin-left: 1rem !important;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav div,
+nav div a {
+  display: flex;
+  align-items: center;
+}
+
+nav div,
+nav div a svg {
+  margin-left: 0.5rem;
+}
+
+nav div a svg {
+  fill: #9a6f47;
+  transition: all 0.2s ease-in-out;
+}
+
+nav div a svg:hover {
+  fill: #e9ab21;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+}
+
+.banner-content div {
+  display: flex;
+  align-items: center;
+}
+
+.banner-content div svg {
+  width: 1.7em;
+  height: 1.7em;
+  fill: #e9ab21;
+}
+
+.banner-content span {
+  margin: 0 0.75em;
+  color: #e9ab21;
+  font-size: 1.777em;
+  letter-spacing: 0.25ch;
+  font-weight: 500;
 }

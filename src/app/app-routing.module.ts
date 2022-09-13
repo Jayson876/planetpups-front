@@ -1,4 +1,4 @@
-import { UserGuardGuard } from './public/guards/user-guard.guard';
+import { UserGuardGuard } from './guards/user-guard.guard';
 import { NgModule } from '@angular/core';
 import {
   PreloadAllModules,
@@ -6,6 +6,7 @@ import {
   Routes,
   CanActivateChild,
 } from '@angular/router';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -30,8 +31,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./private/admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AdminGuard],
   },
-  { path: '**', redirectTo: '/',  },
+  { path: '**', redirectTo: '/'},
+
 ];
 
 @NgModule({

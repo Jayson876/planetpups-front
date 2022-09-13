@@ -1,0 +1,202 @@
+<div>
+  <div class="content-container">
+    <div class="dialog-close">
+      <div class="form-header">
+        <h2>Create User</h2>
+        <span *ngIf="errMsg">{{ errMsg }}</span>
+      </div>
+      <svg
+        (click)="closeDialog()"
+        xmlns="http://www.w3.org/2000/svg"
+        height="18px"
+        viewBox="0 0 24 24"
+        width="18px"
+        fill="#1a130c"
+        class="close-btn"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </div>
+    <form class="form" [formGroup]="createUserForm" (submit)="createUser()">
+      <div class="form-group group-col-2">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" formControlName="firstName" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['firstName'].invalid &&
+                createUserForm.controls['firstName'].touched) ||
+              (createUserForm.controls['firstName'].invalid && isSubmitted)
+            "
+          >
+            <div
+              *ngIf="createUserForm.controls['firstName'].hasError('required')"
+            >
+              <small>First Name is required</small>
+            </div>
+          </div>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" formControlName="surname" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['surname'].invalid &&
+                createUserForm.controls['surname'].touched) ||
+              (createUserForm.controls['surname'].invalid && isSubmitted)
+            "
+          >
+            <div
+              *ngIf="createUserForm.controls['surname'].hasError('required')"
+            >
+              <small>Last Name is required</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input matInput type="email" formControlName="email" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['email'].invalid &&
+                createUserForm.controls['email'].touched) ||
+              (createUserForm.controls['email'].invalid && isSubmitted)
+            "
+          >
+            <div *ngIf="createUserForm.controls['email'].hasError('required')">
+              <small>Email is required</small>
+            </div>
+            <div *ngIf="createUserForm.controls['email'].hasError('pattern')">
+              <small>Invalid email address</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <select matNativeControl formControlName="role" required>
+              <option selected disabled></option>
+              <option value="Admin">Admin</option>
+              <option value="User">User</option>
+            </select>
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['role'].invalid &&
+                createUserForm.controls['role'].touched) ||
+              (createUserForm.controls['role'].invalid && isSubmitted)
+            "
+          >
+            <div *ngIf="createUserForm.controls['role'].hasError('required')">
+              <small>Role is required</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group group-col-2">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['password'].invalid &&
+                createUserForm.controls['password'].touched) ||
+              (createUserForm.controls['password'].invalid && isSubmitted)
+            "
+          >
+            <div
+              *ngIf="createUserForm.controls['password'].hasError('required')"
+            >
+              <small>A password is required</small>
+            </div>
+            <div
+              *ngIf="createUserForm.controls['password'].hasError('minlength')"
+            >
+              <small
+                >Minimum 8 characters and at least one upper case letter, number
+                and special character</small
+              >
+            </div>
+          </div>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPassword" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['confirmPassword'].invalid &&
+                createUserForm.controls['confirmPassword'].touched) ||
+              (createUserForm.controls['confirmPassword'].invalid &&
+                isSubmitted)
+            "
+          >
+            <div
+              *ngIf="
+                createUserForm.controls['confirmPassword'].hasError('required')
+              "
+            >
+              <small>Please confirm your password</small>
+            </div>
+            <div
+              *ngIf="
+                createUserForm.controls['confirmPassword'].hasError('mustMatch')
+              "
+            >
+              <small>Password does not match</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group group-col-2">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="text" formControlName="cell" />
+          </mat-form-field>
+          <div
+            class="errors"
+            *ngIf="
+              (createUserForm.controls['cell'].invalid &&
+                createUserForm.controls['cell'].touched) ||
+              (createUserForm.controls['cell'].invalid && isSubmitted)
+            "
+          >
+            <div *ngIf="createUserForm.controls['cell'].hasError('required')">
+              <small>Phone number is required</small>
+            </div>
+            <div *ngIf="createUserForm.controls['cell'].hasError('pattern')">
+              <small>Invalid phone number</small>
+            </div>
+          </div>
+        </div>
+        <mat-checkbox formControlName="whatsapp">Whatsapp?</mat-checkbox>
+      </div>
+      <div class="control-group">
+        <button mat-raised-button type="submit">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

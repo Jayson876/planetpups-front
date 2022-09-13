@@ -1,0 +1,63 @@
+<div class="table-section-container">
+  <div class="table-section">
+    <div class="table-header">
+      <span>User Management</span>
+      <button
+        mat-flat-button
+        id="yes-button"
+        [mat-dialog-close]="true"
+        (click)="onUserCreate()"
+      >
+        New User
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr class="thead-row">
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Cell</th>
+          <th>Whatsapp</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let user of users
+              | slice
+                : currentPage * pageLimit
+                : currentPage * pageLimit + pageLimit
+          "
+        >
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.surname }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            {{ user.cell | slice: 0:3 }}-{{ user.cell | slice: 3:6 }}-{{
+              user.cell | slice: 6:10
+            }}
+          </td>
+          <td>
+            <mat-checkbox [checked]="user.whatsapp"></mat-checkbox>
+          </td>
+          <td>{{ user.role }}</td>
+          <td>
+            <a class="btn-edit" (click)="onUpdate(user._id)">Edit</a>
+            <a class="btn-delete" (click)="onDelete(user._id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+      [length]="users.length"
+      [pageSize]="pageLimit"
+      [pageSizeOptions]="[4, 16, 40, 120]"
+      (page)="changePage($event)"
+      aria-label="Select page"
+    >
+      <!-- <mat-spinner *ngIf="products.length === 0"></mat-spinner> -->
+    </mat-paginator>
+  </div>
+</div>

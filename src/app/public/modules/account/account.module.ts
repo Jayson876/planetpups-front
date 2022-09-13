@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { UserDogListComponent } from './components/user-dog-list/user-dog-list.component';
 import { UserCreateDogFormComponent } from './components/user-create-dog-form/user-create-dog-form.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatSelectModule } from '@angular/material/select';
     PublicModule,
     FormsModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
   ],
 })
 export class AccountModule {}

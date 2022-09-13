@@ -15,9 +15,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-create-dog-form.component.scss'],
 })
 export class UserCreateDogFormComponent implements OnInit {
+  isSubmitted!: boolean;
   storage: any;
-  isMixed: boolean = false;
   newDogForm!: FormGroup;
+  isMixed: boolean = false;
   currentUser!: any;
   selectedFile!: any;
   constructor(
@@ -33,7 +34,6 @@ export class UserCreateDogFormComponent implements OnInit {
     const file = this.dogInput.nativeElement?.files?.[0];
     if (file) {
       this.newDogForm.get('dogImage')?.setValue(file);
-      console.log('THIS IS A DOG FILE', file);
     }
     // this.selectedFile = event.target.files[0];
     // this.formData.append('dogImage', file, file.name);
@@ -64,13 +64,11 @@ export class UserCreateDogFormComponent implements OnInit {
   }
   formFieldToggle(): void {
     this.isMixed = !this.isMixed;
-    if (this.isMixed === false) {
-      this.newDogForm.get('breed_2')?.setValue('');
-    }
+    this.newDogForm.controls['breed_2'].setValue('');
+    this.newDogForm.controls['breed_2'].markAsUntouched();
+    this.newDogForm.controls['breed_2'].markAsPristine();
   }
   createPost() {
-    // console.log(this.newDogForm.value);
-    console.log(this.selectedFile);
     const formData = new FormData();
     if (this.newDogForm.valid) {
       formData.append('dogImage', this.selectedFile, this.selectedFile.name);
@@ -80,11 +78,8 @@ export class UserCreateDogFormComponent implements OnInit {
       formData.append('price', this.newDogForm.controls['price'].value);
       formData.append('breed_1', this.newDogForm.controls['breed_1'].value);
       formData.append('breed_2', this.newDogForm.controls['breed_2'].value);
-      console.log('FORM DATA 92:', formData);
       this.dogService.createDogPost(formData, this.currentUser._id).subscribe({
-        next: () => {
-          console.log('Post Created');
-        },
+        next: () => {},
         error: () => {
           console.log('Error occured Creating Post');
         },
@@ -93,7 +88,7 @@ export class UserCreateDogFormComponent implements OnInit {
         },
       });
     } else {
-      console.log(this.newDogForm.value);
+      this.isSubmitted = true;
     }
   }
 
@@ -104,7 +99,6 @@ export class UserCreateDogFormComponent implements OnInit {
   getUser() {
     this.userService.getUserById(this.storage.id).subscribe((data: any) => {
       this.currentUser = data;
-      // console.log(this.currentUser);
     });
   }
 }

@@ -1,7 +1,13 @@
 <section class="dog list">
   <div class="container">
     <div class="wrapper">
-      <div *ngFor="let dog of dogListing" class="dog-card-container">
+      <div
+        *ngFor="
+          let dog of dogListing
+            | slice: currentPage * pageLimit:currentPage * pageLimit + pageLimit
+        "
+        class="dog-card-container"
+      >
         <div class="dog-card">
           <div class="dog-image">
             <img src="{{ IMAGE_PATH }}{{ dog.dogImage }}" alt="" />
@@ -18,7 +24,7 @@
                 </div>
                 <div class="dog-info-r1-c2">
                   <div class="r1-c2-controls">
-                    <button>
+                    <button (click)="onUpdate(dog._id)">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="18px"
@@ -176,7 +182,7 @@
             </div>
             <div class="meta">
               <div class="dog-upload-date">
-                <span>Posted: </span>
+                <span>Posted: {{ dog.uploadDate }}</span>
               </div>
 
               <div class="dog-price">
@@ -190,5 +196,14 @@
         <span>You currently have no dog posted.</span>
       </section>
     </div>
+    <mat-paginator
+      [length]="dogListing.length"
+      [pageSize]="pageLimit"
+      [pageSizeOptions]="[20, 40, 80, 160]"
+      (page)="changePage($event)"
+      aria-label="Select page"
+    >
+      <!-- <mat-spinner *ngIf="products.length === 0"></mat-spinner> -->
+    </mat-paginator>
   </div>
 </section>

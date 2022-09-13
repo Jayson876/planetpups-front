@@ -26,7 +26,7 @@ export class RegistrationFormComponent implements OnInit {
     private fb: FormBuilder,
     private storageService: StorageService,
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -91,8 +91,8 @@ export class RegistrationFormComponent implements OnInit {
         next: () => {
           console.log('Successfully registered');
         },
-        error: () => {
-          console.log('Error registering user');
+        error: (err) => {
+          this.errMsg = err.error.message;
         },
         complete: () => {
           this.reloadPage();

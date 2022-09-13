@@ -15,7 +15,7 @@ export class StorageService {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       const data = JSON.parse(user);
-      console.log(data);
+      // console.log(data);
       return data;
     }
     return {};

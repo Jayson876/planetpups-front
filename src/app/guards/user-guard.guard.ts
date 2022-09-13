@@ -17,21 +17,19 @@ import { StorageService } from 'src/app/services/storage.service';
 @Injectable({
   providedIn: 'root',
 })
-export class UserGuardGuard
-  implements CanActivate
-{
+export class UserGuardGuard implements CanActivate {
   constructor(private storageService: StorageService, private router: Router) {}
 
-canActivate(): Promise<boolean> {
+
+  user = this.storageService.getUser();
+  canActivate(): Promise<boolean> {
     return new Promise((resolve) => {
-        if (this.storageService.isLoggedIn()) {
-
-            resolve(true);
-        } else {
-            resolve(false);
-            this.router.navigate(['/']);
-        }
-    })
-}
-
+      if (this.storageService.isLoggedIn() && this.user.role != 'Admin') {
+        resolve(true);
+      } else {
+        resolve(false);
+        this.router.navigate(['/']);
+      }
+    });
+  }
 }

@@ -3,10 +3,13 @@ main {
 }
 
 .dog-list-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   align-items: stretch;
-  background: #FFF;
-  height: 60px;
+  background: #fff;
+  min-height: 74px;
   margin-bottom: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -46,14 +49,14 @@ main {
   }
   button.active {
     font-weight: 500;
-    color: #ba8512;
+    color: #e9ab21;
   }
   button.active::after {
     content: "";
     position: absolute;
     height: 1px;
     width: 100%;
-    background: #ba8512;
+    background: #e9ab21;
     bottom: 0;
     left: 0;
   }

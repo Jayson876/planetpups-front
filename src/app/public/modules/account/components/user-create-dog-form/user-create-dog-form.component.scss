@@ -33,11 +33,13 @@ section {
       align-items: center;
     }
   }
-}
 
+::ng-deep .mat-form-field-infix::after {
+  color: #1a130c !important;
+}
 ::ng-deep .mat-checkbox {
   transform: translateY(-11px);
-margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
@@ -47,7 +49,9 @@ margin-left: 2rem;
 ::ng-deep .mat-checkbox-checked.mat-checkbox-disabled .mat-checkbox-background {
   background-color: #b0b0b0 !important;
 }
-
+::ng-deep .mat-form-field {
+  width: 100%;
+}
 ::ng-deep
   .mat-form-field-appearance-outline.mat-focused
   .mat-form-field-outline {
@@ -63,8 +67,19 @@ margin-left: 2rem;
   color: #f3ebe2;
   justify-self: flex-end !important;
 }
+}
+
 
 .age-input {
   display: flex;
   align-items: flex-start;
+}
+
+.errors {
+  margin-top: -1rem;
+  color: #f44336;
+}
+
+.profile-image-upload {
+margin-bottom: 1.25rem;
 }

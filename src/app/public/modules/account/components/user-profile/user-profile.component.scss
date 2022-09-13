@@ -41,7 +41,7 @@
 .profile-form {
   width: 100%;
   height: auto;
-    background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 1rem;
   padding: 4rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
@@ -94,7 +94,7 @@
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-  background-color: #ba8512;
+  background-color: #e9ab21;
 }
 ::ng-deep .mat-checkbox-checked.mat-checkbox-disabled .mat-checkbox-background {
   background-color: #b0b0b0 !important;
@@ -106,6 +106,10 @@
   color: #1a130c;
 }
 
+::ng-deep .mat-form-field {
+  width: 100%;
+}
+
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
   color: #1a130c;
 }
@@ -114,4 +118,9 @@
   background-color: #1a130c;
   color: #f3ebe2;
   justify-self: flex-end !important;
+}
+
+.errors {
+  margin-top: -1rem;
+  color: #f44336;
 }

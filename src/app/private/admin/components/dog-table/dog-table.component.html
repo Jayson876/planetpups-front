@@ -1,0 +1,70 @@
+<div class="table-section-container">
+  <div class="table-section">
+    <div class="table-header">
+      <span>All Posts</span>
+      <button
+        mat-flat-button
+        id="yes-button"
+        [mat-dialog-close]="true"
+        (click)="onPostCreate()"
+      >
+        New Post
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr class="thead-row">
+          <th>Age</th>
+          <th>Shots</th>
+          <th>Dominant Breed</th>
+          <th>Secondary Breed</th>
+          <th>Gender</th>
+          <th>Price</th>
+          <th>Owner's Name</th>
+          <th>Owner's Email</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let dog of dogs
+              | slice
+                : currentPage * pageLimit
+                : currentPage * pageLimit + pageLimit
+          "
+        >
+          <td>{{ dog.age }} weeks</td>
+          <td>{{ dog.shots }}</td>
+          <td>{{ dog.breed_1 }}</td>
+          <td>{{ dog.breed_2 }}</td>
+          <td>{{ dog.gender }}</td>
+          <td>{{ dog.price | currency }}</td>
+          <td *ngIf="dog.owner.role != 'Admin'">
+            {{ dog.owner.firstName }} {{ dog.owner.surname }}
+          </td>
+          <td *ngIf="dog.owner.role === 'Admin'">{{ dog.owner.role }}</td>
+          <td>{{ dog.owner.email }}</td>
+          <td>
+            {{ dog.owner.cell | slice: 0:3 }}-{{
+              dog.owner.cell | slice: 3:6
+            }}-{{ dog.owner.cell | slice: 6:10 }}
+          </td>
+          <td class="controls">
+            <a class="btn-edit" *ngIf="dog.owner.role === 'Admin'" (click)="onUpdate(dog._id)">Edit</a>
+            <a class="btn-delete" (click)="onDelete(dog._id)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator
+      [length]="dogs.length"
+      [pageSize]="pageLimit"
+      [pageSizeOptions]="[4, 16, 40 , 120]"
+      (page)="changePage($event)"
+      aria-label="Select page"
+    >
+      <!-- <mat-spinner *ngIf="products.length === 0"></mat-spinner> -->
+    </mat-paginator>
+  </div>
+</div>

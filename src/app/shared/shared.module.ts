@@ -8,9 +8,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditDogComponent } from './components/edit-dog/edit-dog.component';
 
 @NgModule({
-  declarations: [DialogComponent],
+  declarations: [DialogComponent, EditDogComponent],
   imports: [
     CommonModule,
     MatButtonModule,

@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.storageService.isLoggedIn();
     this.currentUser = this.storageService.getUser();
-    if(this.currentUser.role === "ADMIN"){
+    if(this.currentUser.role === "Admin"){
       this.isAdmin = true
     } else {
       this.isAdmin = false;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { LogingToggleService } from 'src/app/services/loging-toggle.service';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -16,13 +16,17 @@ export class LoginBtnComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private logingService: LogingToggleService
   ) {}
 
   ngOnInit(): void {
     this.pageHeight = +document.body.clientHeight - 1;
     this.isLoggedIn = this.storageService.isLoggedIn();
+    this.logingService.getValue().subscribe((value: boolean) => {
+      this.showForm = value;
+      // console.log('SHOW:', this.showForm);
+    });
   }
 
   formToggle(): void {
@@ -34,14 +38,13 @@ export class LoginBtnComponent implements OnInit {
   }
 
   getData(data: any) {
-    console.log(data);
     this.showInnerForm = data;
   }
 
   userLogOut() {
     this.authService.logout().subscribe({
       next: (res) => {
-        this.storageService.clean()
+        this.storageService.clean();
         this.reloadPage();
       },
       error: (err) => {

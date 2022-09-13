@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [PetsComponent, PetListingComponent],
   imports: [
@@ -23,9 +24,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    // FormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
+    MatPaginatorModule,
   ],
 })
 export class PetsModule {}

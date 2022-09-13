@@ -4,6 +4,7 @@ a {
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .btn-primary-hero {
@@ -15,15 +16,15 @@ a {
 }
 .btn-primary-1 {
   font-weight: 500;
-  color: #F3EBE2;
+  color: #f3ebe2;
   border: 1px solid #1a130c;
   background-color: #1a130c;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .btn-primary-1-search {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   font-weight: 400;
-  color: #F3EBE2;
+  color: #f3ebe2;
   background-color: #1a130c;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   min-height: 3em;
@@ -60,8 +61,5 @@ a {
   margin-top: 1em;
 }
 .margin-left {
-  margin-left: .75em;
+  margin-left: 0.75em;
 }
-
-
-

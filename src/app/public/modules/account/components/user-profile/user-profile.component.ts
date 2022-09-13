@@ -17,6 +17,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent implements OnInit {
+  isSubmitted!: boolean;
   storage: any;
   currentUser: any;
   isDisabled: boolean = true;
@@ -68,6 +69,8 @@ export class UserProfileComponent implements OnInit {
 
   updateProfile(id: string) {
     if (this.updateForm.valid) {
+      this.updateForm.valid;
+      this.updateForm.get('firstName')?.clearValidators();
       this.userService.updateUser(id, this.updateForm.value).subscribe({
         next: () => {
           console.log('Profile updated');
@@ -79,6 +82,8 @@ export class UserProfileComponent implements OnInit {
           this.reloadPage();
         },
       });
+    } else {
+      this.isSubmitted = true;
     }
   }
   reloadPage(): void {
@@ -102,13 +107,19 @@ export class UserProfileComponent implements OnInit {
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
   }
   getUser() {
     this.userService.getUserById(this.storage.id).subscribe((data: any) => {
       if (!data) return;
       this.currentUser = data;
-      console.log(this.currentUser);
+
+      this.updateForm.setValue({
+        firstName: data.firstName,
+        surname: data.surname,
+        email: data.email,
+        cell: data.cell,
+        whatsapp: data.whatsapp,
+      });
     });
   }
 }

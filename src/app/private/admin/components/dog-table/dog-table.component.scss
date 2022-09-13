@@ -1,0 +1,125 @@
+.table-section-container {
+  height: auto;
+}
+
+.table-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.table-header {
+  width: 100%;
+  padding: 14px 16px 14px 16px;
+  background-color: #fff;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#yes-button {
+  font-size: 14px;
+  padding: 0 16px;
+  font-weight: 500;
+  color: #f3ebe2;
+  border: 1px solid #1a130c;
+  background-color: #1a130c;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-left: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Roboto Flex", sans-serif;
+  padding: 0;
+  border-top: 1px solid #dede;
+  background-color: #fff;
+}
+.thead-row {
+  border-bottom: 1px solid #f2f2f2;
+}
+.thead-row th {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333333;
+  line-height: 1.4;
+}
+tbody tr {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+th,
+td {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+td {
+  color: #666666;
+}
+td a,
+td button {
+  padding-right: 5px;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 13px;
+  color: #666666;
+}
+
+.btn-view:hover {
+  color: #2a9d8f;
+}
+.btn-edit {
+  font-size: 13px;
+  color: #666;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  transition: 0.2s all ease-in-out;
+  cursor: pointer;
+  grid-column: 1;
+}
+.btn-edit:hover {
+  color: #ba8512;
+}
+
+.btn-delete {
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  grid-column: 2;
+}
+.btn-delete:hover {
+  color: #e24d28;
+}
+
+::ng-deep .mat-paginator-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #1a130c;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #1a130c;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #1a130c !important;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

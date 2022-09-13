@@ -1,7 +1,7 @@
 <form class="form" [formGroup]="registrationForm" (submit)="registerUser()" >
   <div class="form-header">
     <h2>Register</h2>
-    <span *ngIf="errMsg"></span>
+    <span *ngIf="errMsg">{{errMsg}}</span>
   </div>
   <div class="form-group group-col-2">
     <div>

@@ -2,17 +2,17 @@
   <div class="container">
     <div class="header">
       <div class="logo">
-        <p>logo</p>
+        <img src="../../../../assets/static/imgs/imgs/logo.png" alt="">
       </div>
       <nav class="nav-bar">
         <div class="nav-1">
           <a href="/">Home</a>
-          <a *ngIf="isLoggedIn && isAdmin" href="/">Dashboard</a>
+          <a *ngIf="isLoggedIn && isAdmin" href="/admin">Dashboard</a>
           <a href="/dogs">Available Dogs</a>
-          <a *ngIf="isLoggedIn" href="/account">My Account</a>
+          <a *ngIf="isLoggedIn && !isAdmin" href="/account">My Account</a>
         </div>
         <div class="nav-2">
-          <app-login-btn></app-login-btn>
+          <app-login-btn ></app-login-btn>
         </div>
       </nav>
     </div>
