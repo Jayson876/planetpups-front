@@ -19,6 +19,19 @@
     </div>
     <div class="new-dog-form">
       <form [formGroup]="updateDogForm" (submit)="updateDog()">
+        <div class="form-group">
+          <div>
+            <div class="profile-image-upload">
+              <h3>Change Photo</h3>
+              <input
+                type="file"
+                accept="image/*"
+                (change)="onFileSelected($event)"
+                #dogImage
+              />
+            </div>
+          </div>
+        </div>
         <div class="form-group group-col-4">
           <div>
             <mat-form-field appearance="outline">

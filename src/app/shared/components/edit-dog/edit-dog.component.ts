@@ -1,4 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -19,6 +25,7 @@ export class EditDogComponent implements OnInit {
   updateDogForm!: FormGroup;
   isMixed: boolean = false;
   currentDog!: any;
+  selectedFile!: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -26,6 +33,20 @@ export class EditDogComponent implements OnInit {
     private fb: FormBuilder,
     private dogService: DogService
   ) {}
+
+  @ViewChild('dogImage') dogInput!: ElementRef<HTMLInputElement>;
+
+  onFileSelected(event: Event): void {
+    const file = this.dogInput.nativeElement?.files?.[0];
+    if (file) {
+      this.updateDogForm.get('dogImage')?.setValue(file);
+    }
+    // this.selectedFile = event.target.files[0];
+    // this.formData.append('dogImage', file, file.name);
+    this.selectedFile = file;
+    console.log(this.selectedFile);
+    // console.log(event);
+  }
 
   ngOnInit() {
     this.getDogById();
@@ -48,12 +69,20 @@ export class EditDogComponent implements OnInit {
     this.getDogById();
   }
   updateDog() {
+    const formData = new FormData();
     if (this.updateDogForm.valid) {
-      this.dogService
-        .updateDog(this.currentDog._id, this.updateDogForm.value)
-        .subscribe(() => {
-          this.reloadPage();
-        });
+      if (this.selectedFile) {
+        formData.append('dogImage', this.selectedFile, this.selectedFile.name);
+      }
+      formData.append('age', this.updateDogForm.controls['age'].value);
+      formData.append('shots', this.updateDogForm.controls['shots'].value);
+      formData.append('gender', this.updateDogForm.controls['gender'].value);
+      formData.append('price', this.updateDogForm.controls['price'].value);
+      formData.append('breed_1', this.updateDogForm.controls['breed_1'].value);
+      formData.append('breed_2', this.updateDogForm.controls['breed_2'].value);
+      this.dogService.updateDog(this.currentDog._id, formData).subscribe(() => {
+        this.reloadPage();
+      });
     }
   }
 
@@ -74,7 +103,7 @@ export class EditDogComponent implements OnInit {
       if (this.currentDog.breed_2) {
         this.isMixed = true;
       }
-      this.updateDogForm.setValue({
+      this.updateDogForm.patchValue({
         age: result.age,
         shots: result.shots,
         gender: result.gender,

@@ -48,12 +48,18 @@ export class DogService {
   //   )
   // }
 
-  updateDog(id: string, body: object): Observable<Dog> {
-    return this.http.put<Dog>(`${this.REST_API_URL}/${id}`, body).pipe(
+  updateDog(id: string, formData: FormData): Observable<Dog> {
+    return this.http.put<Dog>(`${this.REST_API_URL}/${id}`, formData).pipe(
       tap((updatedDog) => console.log(`${JSON.stringify(updatedDog)}`)),
       catchError((error) => of())
     );
   }
+  // updateDog(id: string, body: object): Observable<Dog> {
+  //   return this.http.put<Dog>(`${this.REST_API_URL}/${id}`, body).pipe(
+  //     tap((updatedDog) => console.log(`${JSON.stringify(updatedDog)}`)),
+  //     catchError((error) => of())
+  //   );
+  // }
 
   deleteDogById(id: string): Observable<Dog> {
     return this.http.delete<Dog>(`${this.REST_API_URL}/${id}`);
